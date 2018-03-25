@@ -31,6 +31,11 @@ public class ActorController {
 		return ResponseEntity.ok("Hello World !!!");
 	}
 	
+	@GetMapping("/salut")
+	public ResponseEntity<String> saySalut() {
+		return ResponseEntity.ok("Salut !!");
+	}
+	
 	@AdminRole
 	@GetMapping
 	public ResponseEntity<List<Actor>> searchAll() {
@@ -38,7 +43,7 @@ public class ActorController {
 	}
 	
 	@ManagerRole
-	@GetMapping("{id}")
+	@GetMapping("/searchById/{id}")
 	public ResponseEntity<Actor> searchById(@PathVariable Integer id) {
 		System.out.println(this.actor.getNom());
 		return ResponseEntity.ok(this.actorService.getById(id));
