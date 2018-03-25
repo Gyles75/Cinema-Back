@@ -26,6 +26,7 @@ public class ActorController {
 	private Actor actor;
 	
 	
+	@AdminRole
 	@GetMapping("/add/{one}/{two}")
 	public ResponseEntity<Integer> add(@PathVariable Integer one, @PathVariable Integer two) {
 		return ResponseEntity.ok(one + two);
