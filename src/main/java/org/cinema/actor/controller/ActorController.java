@@ -12,8 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -49,16 +47,6 @@ public class ActorController {
 	@GetMapping("/searchByPrenom/{prenom}")
 	public ResponseEntity<List<Actor>> searchByPrenom(@PathVariable String prenom) {
 		return ResponseEntity.ok(this.actorService.getByPrenom(prenom));
-	}
-	
-	@PostMapping("/searchByNomAndPrenom")
-	public ResponseEntity<Actor> searchByPrenom(@RequestBody Actor actor) {
-		return ResponseEntity.ok(this.actorService.getByNomAndPrenom(actor.getNom(), actor.getPrenom()));
-	}
-	
-	@GetMapping("/hello")
-	public ResponseEntity<String> hello() {
-		return ResponseEntity.ok("Hello World !!!");
 	}
 	
 	@GetMapping("/init")

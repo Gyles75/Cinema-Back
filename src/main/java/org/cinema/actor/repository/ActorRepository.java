@@ -10,6 +10,4 @@ public interface ActorRepository extends MongoRepository<Actor, Integer> {
 	public List<Actor> findByNom(String nom);
 	
 	public List<Actor> findByPrenom(String prenom);
-	
-	public Actor findByNomAndPrenom(String nom, String prenom);
 }

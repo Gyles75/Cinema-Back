@@ -36,11 +36,6 @@ public class ActorService {
 		return this.actorRepository.findByPrenom(prenom);
 	}
 	
-	@Transactional(readOnly = true)
-	public Actor getByNomAndPrenom(String nom, String prenom) {
-		return this.actorRepository.findByNomAndPrenom(nom, prenom);
-	}
-	
 	@Transactional
 	public Actor save(Actor actor) {
 		if (this.actorRepository.exists(actor.getId())) {
