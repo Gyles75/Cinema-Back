@@ -26,14 +26,9 @@ public class ActorController {
 	private Actor actor;
 	
 	
-	@GetMapping("/hello")
-	public ResponseEntity<String> sayHello() {
-		return ResponseEntity.ok("Hello World !!!");
-	}
-	
-	@GetMapping("/salut")
-	public ResponseEntity<String> saySalut() {
-		return ResponseEntity.ok("Salut !!");
+	@GetMapping("/bonjour")
+	public ResponseEntity<String> sayBonjour() {
+		return ResponseEntity.ok("Bonjour tous le monde !!!");
 	}
 	
 	@AdminRole
