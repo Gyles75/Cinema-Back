@@ -26,13 +26,21 @@ public class ActorController {
 	private Actor actor;
 	
 	
-	@AdminRole
+	@GetMapping("/multiply/{one}/{two}")
+	public ResponseEntity<Integer> multiply(@PathVariable Integer one, @PathVariable Integer two) {
+		return ResponseEntity.ok(one * two);
+	}
+	
+	@GetMapping("/minus/{one}/{two}")
+	public ResponseEntity<Integer> minus(@PathVariable Integer one, @PathVariable Integer two) {
+		return ResponseEntity.ok(one - two);
+	}
+	
 	@GetMapping("/add/{one}/{two}")
 	public ResponseEntity<Integer> add(@PathVariable Integer one, @PathVariable Integer two) {
 		return ResponseEntity.ok(one + two);
 	}
 	
-	@AdminRole
 	@GetMapping
 	public ResponseEntity<List<Actor>> searchAll() {
 		return ResponseEntity.ok(this.actorService.getAll());
