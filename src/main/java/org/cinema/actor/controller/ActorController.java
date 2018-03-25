@@ -49,6 +49,11 @@ public class ActorController {
 		return ResponseEntity.ok(this.actorService.getByPrenom(prenom));
 	}
 	
+	@GetMapping("/hello")
+	public ResponseEntity<String> hello() {
+		return ResponseEntity.ok("Hello World !!!");
+	}
+	
 	@GetMapping("/init")
 	public ResponseEntity<List<Actor>> init() {
 		return ResponseEntity.ok(
