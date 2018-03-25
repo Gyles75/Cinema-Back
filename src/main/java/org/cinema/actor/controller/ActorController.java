@@ -26,9 +26,9 @@ public class ActorController {
 	private Actor actor;
 	
 	
-	@GetMapping("/bonjour")
-	public ResponseEntity<String> sayBonjour() {
-		return ResponseEntity.ok("Bonjour tous le monde !!!");
+	@GetMapping("/add/{one}/{two}")
+	public ResponseEntity<Integer> add(@PathVariable Integer one, @PathVariable Integer two) {
+		return ResponseEntity.ok(one + two);
 	}
 	
 	@AdminRole
