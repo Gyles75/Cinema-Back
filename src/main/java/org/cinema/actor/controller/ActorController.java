@@ -26,6 +26,11 @@ public class ActorController {
 	private Actor actor;
 	
 	
+	@GetMapping("/hello")
+	public ResponseEntity<String> sayHello() {
+		return ResponseEntity.ok("Hello World !!!");
+	}
+	
 	@AdminRole
 	@GetMapping
 	public ResponseEntity<List<Actor>> searchAll() {
