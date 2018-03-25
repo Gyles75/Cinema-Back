@@ -45,6 +45,7 @@ public class ActorController {
 		return ResponseEntity.ok(this.actorService.getById(id));
 	}
 	
+	@AdminRole
 	@GetMapping("/searchByNom/{nom}")
 	public ResponseEntity<List<Actor>> searchByNom(@PathVariable String nom) {
 		return ResponseEntity.ok(this.actorService.getByNom(nom));
