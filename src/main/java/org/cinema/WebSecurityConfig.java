@@ -22,7 +22,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		httpSecurity
 			.cors().and()
 			.csrf().disable()
-			.authorizeRequests().antMatchers("/api/v1/**").permitAll()
+			.authorizeRequests().antMatchers("/api/v1/**", "/trace").permitAll()
 			.antMatchers("/protected/**").authenticated()
 			.and()
 			.formLogin()//.loginPage("/login").loginProcessingUrl("/api/v1/user/login")
@@ -31,4 +31,31 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.sessionManagement().maximumSessions(1).maxSessionsPreventsLogin(true).sessionRegistry(this.sessionRegistry)
 		;
 	}
+	
+	/*@Bean
+	public EmbeddedServletContainerFactory servletContainer() {
+		TomcatEmbeddedServletContainerFactory tomcat = new TomcatEmbeddedServletContainerFactory() {
+			@Override
+			protected void postProcessContext(Context context) {
+				SecurityConstraint securityConstraint = new SecurityConstraint();
+				securityConstraint.setUserConstraint("CONFIDENTIAL");
+				SecurityCollection collection = new SecurityCollection();
+				collection.addPattern("/*");
+				securityConstraint.addCollection(collection);
+				context.addConstraint(securityConstraint);
+        	}
+		};
+		
+		tomcat.addAdditionalTomcatConnectors(initiateHttpConnector());
+		return tomcat;
+	}
+	
+	private Connector initiateHttpConnector() {
+		Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");
+	    connector.setScheme("http");
+	    connector.setPort(8080);
+	    connector.setSecure(false);
+	    connector.setRedirectPort(8080);
+		return connector;
+	}*/
 }
